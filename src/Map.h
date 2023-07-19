@@ -4,7 +4,6 @@
 class Map :
     public Object
 {
-protected:
 public:
     Map(Vector2 size);
     ~Map() override;

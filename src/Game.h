@@ -1,6 +1,5 @@
 #pragma once
-#include <raylib.h>
-
+#include <conio.h>
 #include "Base.h"
 #include "Object.h"
 #include "Map.h"
@@ -22,4 +21,7 @@ protected:
 private:
 	static const int objQty = 1;
 	Object* objs[objQty];
+	int input;
+
+	void takeInput();
 };

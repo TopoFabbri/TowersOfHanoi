@@ -17,5 +17,4 @@ void Map::start()
 
 void Map::update()
 {
-
 }

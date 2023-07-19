@@ -1,8 +1,7 @@
-#include <raylib.h>
 #include "Game.h"
 
-const int height = 1920;
-const int width = 1080;
+const int width = 1920;
+const int height = 1080;
 
 void defaults();
 void runProgram();
@@ -14,12 +13,13 @@ int main()
 
 void defaults()
 {
-	InitWindow(width, height, "HeadSoccer");
+	InitWindow(width, height, "TowersOfHanoi");
 }
 
 void runProgram()
 {
 	defaults();
-	Game game = Game();
-	game.run();
+	Game* game = new Game();
+	game->run();
+	delete game;
 }
