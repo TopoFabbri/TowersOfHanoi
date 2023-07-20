@@ -18,3 +18,11 @@ Rectangle Tools::toConsoleDimensions(Rectangle r)
 
 	return r;
 }
+
+Vector2 Tools::toScreenDimensions(Vector2 v)
+{
+	v.x = v.x / WIDTH * 100.f;
+	v.y = v.y / HEIGHT * 100.f;
+
+	return v;
+}

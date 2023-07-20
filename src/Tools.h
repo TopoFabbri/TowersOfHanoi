@@ -9,4 +9,5 @@ public:
 
 	static Vector2 toConsoleDimensions(Vector2 v);
 	static Rectangle toConsoleDimensions(Rectangle r);
+	static Vector2 toScreenDimensions(Vector2 v);
 };

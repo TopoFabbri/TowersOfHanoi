@@ -6,9 +6,10 @@ class Tower :
 {
 private:
     int number;
-    int discs;
 
 public:
+    int discs;
+
     Tower(int discQty, int newNumber, float posX, float height, float width, float base);
     ~Tower() override;
 
