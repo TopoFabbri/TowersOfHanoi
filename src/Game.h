@@ -3,6 +3,7 @@
 #include "Base.h"
 #include "Object.h"
 #include "Map.h"
+#include "Towers.h"
 
 class Game :
     public Base
@@ -19,7 +20,7 @@ protected:
 	void draw() override;
 
 private:
-	static const int objQty = 1;
+	static const int objQty = 2;
 	Object* objs[objQty];
 	int input;
 

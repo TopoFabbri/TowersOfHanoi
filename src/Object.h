@@ -1,6 +1,8 @@
 #pragma once
+
 #include <raylib.h>
 #include "Base.h"
+#include "Tools.h"
 
 class Object :
     public Base
@@ -16,5 +18,6 @@ public:
     ~Object() override;
 
     void start() override;
+    void update() override;
     void draw() override;
 };

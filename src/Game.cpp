@@ -3,7 +3,8 @@
 Game::Game()
 {
 	input = 0;
-	objs[0] = new Map({1000, 500});
+	objs[0] = new Map({100, 100});
+	objs[1] = new Towers();
 }
 
 Game::~Game()

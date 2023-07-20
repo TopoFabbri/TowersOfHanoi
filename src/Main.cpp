@@ -1,7 +1,5 @@
 #include "Game.h"
-
-const int width = 1920;
-const int height = 1080;
+#include "Tools.h"
 
 void defaults();
 void runProgram();
@@ -13,7 +11,7 @@ int main()
 
 void defaults()
 {
-	InitWindow(width, height, "TowersOfHanoi");
+	InitWindow(Tools::WIDTH, Tools::HEIGHT, "TowersOfHanoi");
 }
 
 void runProgram()

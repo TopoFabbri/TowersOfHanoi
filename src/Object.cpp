@@ -16,14 +16,18 @@ void Object::start()
 {
 }
 
+void Object::update()
+{
+}
+
 void Object::draw()
 {
-	Rectangle source = { 0, 0,
+	Rectangle source = { 0.f, 0.f,
 		static_cast<float>(sprite.width), static_cast<float>(sprite.height) };
-	Vector2 origin = { rec.width / 2, rec.height / 2 };
+	Vector2 origin = { 0, 0 };
 
 	if (sprite.width != 0)
-		DrawTexturePro(sprite, source, rec, origin, rot, tint);
+		DrawTexturePro(sprite, source, Tools::toConsoleDimensions(rec), origin, rot, tint);
 	else
-		DrawRectangleRec(rec, tint);
+		DrawRectangleRec(Tools::toConsoleDimensions(rec), tint);
 }
