@@ -6,6 +6,8 @@ Game::Game()
 
 	objs[0] = new Map({100, 100});
 	objs[1] = new Towers(cursor);
+
+	inGame = false;
 }
 
 Game::~Game()
@@ -38,6 +40,9 @@ void Game::update()
 		obj->update();
 
 	cursor->update();
+
+	if (static_cast<Towers*>(objs[1])->won())
+		inGame = false;
 }
 
 void Game::draw()

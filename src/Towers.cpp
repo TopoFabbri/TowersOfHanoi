@@ -57,3 +57,13 @@ void Towers::draw()
 	for (int i = 0; i < discQty; i++)
 		discs[i]->draw();
 }
+
+bool Towers::won()
+{
+	int discCount = 0;
+
+	while (discs[discCount])
+		discCount++;
+
+	return discCount >= discQty;
+}

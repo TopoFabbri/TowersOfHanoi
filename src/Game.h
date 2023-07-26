@@ -24,4 +24,6 @@ private:
 	static const int objQty = 2;
 	Cursor* cursor;
 	Object* objs[objQty];
+
+	bool inGame;
 };

@@ -13,7 +13,7 @@ public:
 
 	int getDiscQty();
 
-	void addDisc(Disc* disc);
+	bool addDisc(Disc* disc);
 	Disc* takeDisk();
 
 private:

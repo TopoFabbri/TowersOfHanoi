@@ -15,8 +15,15 @@ void Zone::update()
 	if (cursor->getClick() && mouseInZone)
 	{
 		if (cursor->getHasDisk())
-			towerAttached->addDisc(cursor->dropDisc());
+		{
+			Disc* disc = cursor->dropDisc();
+
+			if (!towerAttached->addDisc(disc))
+				cursor->grabDisc(disc);
+		}
 		else
+		{
 			cursor->grabDisc(towerAttached->takeDisk());
+		}
 	}
 }

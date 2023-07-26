@@ -13,4 +13,5 @@ public:
 
 	void setPos(Vector2 pos);
 	void grab();
+	int getNumber();
 };

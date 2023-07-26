@@ -18,3 +18,8 @@ void Disc::grab()
 {
 	grabbed = true;
 }
+
+int Disc::getNumber()
+{
+	return number;
+}

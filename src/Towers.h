@@ -30,5 +30,5 @@ public:
     void update() override;
     void draw() override;
 
-    void moveDisc(int discIndex, int toTower);
+    bool won();
 };

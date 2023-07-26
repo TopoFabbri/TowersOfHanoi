@@ -23,12 +23,18 @@ int Tower::getDiscQty()
 	return discQty;
 }
 
-void Tower::addDisc(Disc* disc)
+bool Tower::addDisc(Disc* disc)
 {
 	int i = 0;
 
 	while (i < MAX_DISCS && discs[i])
 		i++;
+
+	if (i > 0)
+	{
+		if (discs[i - 1]->getNumber() <= disc->getNumber())
+			return false;
+	}
 
 	discs[i] = disc;
 
@@ -41,6 +47,8 @@ void Tower::addDisc(Disc* disc)
 	disc->setPos({ posX, height });
 
 	discQty++;
+
+	return true;
 }
 
 Disc* Tower::takeDisk()
