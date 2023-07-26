@@ -1,17 +1,25 @@
 #pragma once
 #include "Object.h"
+#include "Disc.h"
 
 class Tower :
-    public Object
+	public Object
 {
-private:
-    int number;
-
 public:
-    int discs;
+	static const int MAX_DISCS = 9;
 
-    Tower(int discQty, int newNumber, float posX, float height, float width, float base);
-    ~Tower() override;
+	Tower(int newNumber, float discSpace, float discHeight, float posX, float height, float width, float top);
+	~Tower() override;
 
-    void draw() override;
+	int getDiscQty();
+
+	void addDisc(Disc* disc);
+	Disc* takeDisk();
+
+private:
+	int number;
+	int discQty;
+	float discSpace;
+	float discHeight;
+	Disc* discs[MAX_DISCS];
 };

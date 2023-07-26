@@ -6,9 +6,11 @@ class Disc :
 {
 private:
 	int number;
+	bool grabbed;
 
 public:
 	Disc(int newNumber, float height);
 
 	void setPos(Vector2 pos);
+	void grab();
 };

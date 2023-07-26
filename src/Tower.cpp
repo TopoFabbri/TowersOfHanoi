@@ -1,10 +1,15 @@
 #include "Tower.h"
 
-Tower::Tower(int discQty, int newNumber, float posX, float height, float width, float top)
+Tower::Tower(int newNumber, float newDiscSpace, float newDiscHeight, float posX, float height, float width, float top)
 {
 	number = newNumber;
+	discSpace = newDiscSpace;
+	discHeight = newDiscHeight;
 
-	discs = 0;
+	this->discQty = 0;
+
+	for (int i = 0; i < MAX_DISCS; i++)
+		discs[i] = NULL;
 
 	rec = { posX - width / 2.f, top, width, height };
 }
@@ -13,7 +18,49 @@ Tower::~Tower()
 {
 }
 
-void Tower::draw()
+int Tower::getDiscQty()
 {
-	Object::draw();
+	return discQty;
+}
+
+void Tower::addDisc(Disc* disc)
+{
+	int i = 0;
+
+	while (i < MAX_DISCS && discs[i])
+		i++;
+
+	discs[i] = disc;
+
+	float posX = rec.x;
+	float height = rec.y + rec.height;
+
+	posX += rec.width / 2.f;
+	height -= (discHeight + discSpace) * static_cast<float>(discQty);
+
+	disc->setPos({ posX, height });
+
+	discQty++;
+}
+
+Disc* Tower::takeDisk()
+{
+	int i = 0;
+
+	while (i < MAX_DISCS && discs[i])
+		i++;
+
+	if (i > 0)
+	{
+		Disc* disc = discs[i - 1];
+
+		discs[i - 1] = NULL;
+		discQty--;
+
+		disc->grab();
+
+		return disc;
+	}
+
+	return NULL;
 }

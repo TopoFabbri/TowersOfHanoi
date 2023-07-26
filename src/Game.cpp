@@ -2,9 +2,10 @@
 
 Game::Game()
 {
-	input = 0;
+	cursor = new Cursor();
+
 	objs[0] = new Map({100, 100});
-	objs[1] = new Towers();
+	objs[1] = new Towers(cursor);
 }
 
 Game::~Game()
@@ -33,7 +34,10 @@ void Game::update()
 	if (WindowShouldClose())
 		active = false;
 
-	takeInput();
+	for (Object* obj : objs)
+		obj->update();
+
+	cursor->update();
 }
 
 void Game::draw()
@@ -44,11 +48,7 @@ void Game::draw()
 	for (Object* obj : objs)
 		obj->draw();
 
-	EndDrawing();
-}
+	cursor->draw();
 
-void Game::takeInput()
-{
-	if (_kbhit())
-		input = _getch();
+	EndDrawing();
 }

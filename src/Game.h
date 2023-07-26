@@ -4,6 +4,7 @@
 #include "Object.h"
 #include "Map.h"
 #include "Towers.h"
+#include "Cursor.h"
 
 class Game :
     public Base
@@ -21,8 +22,6 @@ protected:
 
 private:
 	static const int objQty = 2;
+	Cursor* cursor;
 	Object* objs[objQty];
-	int input;
-
-	void takeInput();
 };

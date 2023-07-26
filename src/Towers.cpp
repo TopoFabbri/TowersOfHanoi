@@ -1,6 +1,6 @@
 #include "Towers.h"
 
-Towers::Towers()
+Towers::Towers(Cursor* cursor)
 {
 	towerSpace = 30.f;
 	towerHeight = 50.f;
@@ -10,17 +10,28 @@ Towers::Towers()
 	discHeight = 2.f;
 	discQty = 5;
 
+	float zoneSize = 10.f;
+
 	for (int i = 0; i < TOWER_QTY; i++)
 	{
 		towerPoss[i] = 50.f - towerSpace + towerSpace * static_cast<float>(i);
-		towers[i] = new Tower(discQty, i + 1, towerPoss[i], towerHeight, towerWidth, towerTop);
+		Rectangle zone = 
+		{
+			towerPoss[i] - zoneSize / 2.f - towerWidth / 2.f,
+			towerTop,
+			towerWidth + zoneSize,
+			towerHeight
+		};
+
+		towers[i] = new Tower(i + 1, discSpace, discHeight, towerPoss[i], towerHeight, towerWidth, towerTop);
+		zones[i] = new Zone(towers[i], zone, cursor);
 	}
 
-	for (int i = 0; i < MAX_DISCS; i++)
+	for (int i = 0; i < Tower::MAX_DISCS; i++)
 		discs[i] = new Disc(i, discHeight);
 
 	for (int i = discQty - 1; i >= 0; i--)
-		moveDisc(i, 0);
+		towers[0]->addDisc(discs[i]);
 }
 
 Towers::~Towers()
@@ -33,6 +44,9 @@ void Towers::update()
 {
 	for (Tower* tower : towers)
 		tower->update();
+
+	for (Zone* zone : zones)
+		zone->update();
 }
 
 void Towers::draw()
@@ -42,16 +56,4 @@ void Towers::draw()
 
 	for (int i = 0; i < discQty; i++)
 		discs[i]->draw();
-}
-
-void Towers::moveDisc(int discIndex, int toTower)
-{
-	float posX = towerPoss[toTower];
-	float height = towerTop + towerHeight;
-
-	height -= (discHeight + discSpace) * static_cast<float>(towers[toTower]->discs);
-
-	discs[discIndex]->setPos({ posX, height });
-
-	towers[toTower]->discs++;
 }
