@@ -2,6 +2,7 @@
 
 #include <string>
 #include "Base.h"
+#include "Credits.h"
 #include "Object.h"
 #include "Map.h"
 #include "Towers.h"
@@ -40,6 +41,7 @@ private:
 	Map* map;
 	Towers* towers;
 	Menu* menu;
+	Credits* credits;
 	Stats* stats;
 	WinScreen* winScreen;
 	Button* resetBtn;

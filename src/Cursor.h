@@ -6,6 +6,7 @@ class Cursor :
     public Object
 {
 private:
+	Sound clickWav;
 	Disc* grabbedDisc;
 	bool hasDisk;
 	bool click;
@@ -23,4 +24,5 @@ public:
 	void grabDisc(Disc* disc);
 	int getMovements();
 	void resetMovements();
+	void cancelMove(Disc* disc);
 };

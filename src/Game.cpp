@@ -11,6 +11,7 @@ Game::Game()
 	winScreen = new WinScreen(stats);
 	resetBtn = new Button(Tools::toConsoleDimensions(Vector2{ 90, 5 }), "R");
 	menuBtn = new Button(Tools::toConsoleDimensions(Vector2{ 95, 5 }), ". . .");
+	credits = new Credits();
 
 	state = State::Menu;
 }
@@ -21,6 +22,7 @@ Game::~Game()
 	delete resetBtn;
 	delete winScreen;
 	delete stats;
+	delete credits;
 	delete menu;
 	delete towers;
 	delete map;
@@ -45,7 +47,9 @@ void Game::run()
 			update();
 			break;
 
-		case State::Credits: break;
+		case State::Credits: 
+			state = static_cast<State>(credits->getScene());
+			break;
 
 		case State::Menu: 
 			state = static_cast<State>(menu->updateMenu());
@@ -123,7 +127,9 @@ void Game::draw()
 			break;
 		}
 
-	case State::Credits: break;
+	case State::Credits:
+		credits->draw();
+		break;
 
 	case State::Menu:
 		menu->draw();

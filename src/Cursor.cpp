@@ -2,6 +2,7 @@
 
 Cursor::Cursor()
 {
+	clickWav = LoadSound("aud/Click.wav");
 	rec = { 0, 0, 1.6f, 4 };
 	rot = 0;
 	tint = WHITE;
@@ -25,6 +26,9 @@ void Cursor::update()
 		grabbedDisc->setPos(pos);
 
 	click = IsMouseButtonPressed(MOUSE_BUTTON_LEFT);
+
+	if (click)
+		PlaySound(clickWav);
 }
 
 bool Cursor::getClick()
@@ -57,6 +61,7 @@ void Cursor::grabDisc(Disc* disc)
 {
 	hasDisk = true;
 	grabbedDisc = disc;
+	disc->grab();
 }
 
 int Cursor::getMovements()
@@ -67,4 +72,10 @@ int Cursor::getMovements()
 void Cursor::resetMovements()
 {
 	movements = 0;
+}
+
+void Cursor::cancelMove(Disc* disc)
+{
+	movements--;
+	grabDisc(disc);
 }

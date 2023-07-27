@@ -19,7 +19,7 @@ void Zone::update()
 			Disc* disc = cursor->dropDisc();
 
 			if (!towerAttached->addDisc(disc))
-				cursor->grabDisc(disc);
+				cursor->cancelMove(disc);
 		}
 		else
 		{

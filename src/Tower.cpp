@@ -44,7 +44,7 @@ bool Tower::addDisc(Disc* disc)
 	posX += rec.width / 2.f;
 	height -= (discHeight + discSpace) * static_cast<float>(discQty);
 
-	disc->setPos({ posX, height });
+	disc->placeDisc({ posX, height });
 
 	discQty++;
 
