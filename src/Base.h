@@ -13,4 +13,5 @@ public:
 	virtual void draw();
 
 	bool getActive();
+	void setActive(bool newActive);
 };

@@ -7,14 +7,17 @@
 #include "Towers.h"
 #include "Cursor.h"
 #include "Menu.h"
+#include "Stats.h"
 #include "Text.h"
+#include "WinScreen.h"
 
 enum class State
 {
 	Quit,
 	Game,
 	Credits,
-	Menu
+	Menu,
+	WinScreen
 };
 
 class Game :
@@ -37,10 +40,12 @@ private:
 	Map* map;
 	Towers* towers;
 	Menu* menu;
+	Stats* stats;
+	WinScreen* winScreen;
+	Button* resetBtn;
+	Button* menuBtn;
 
 	State state;
-	int movements;
-	int startTime;
 
 	void reset();
 };

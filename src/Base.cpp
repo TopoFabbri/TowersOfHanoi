@@ -25,3 +25,8 @@ bool Base::getActive()
 {
 	return active;
 }
+
+void Base::setActive(bool newActive)
+{
+	active = newActive;
+}

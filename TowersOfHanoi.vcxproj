@@ -162,10 +162,12 @@
     <ClCompile Include="src\Map.cpp" />
     <ClCompile Include="src\Menu.cpp" />
     <ClCompile Include="src\Object.cpp" />
+    <ClCompile Include="src\Stats.cpp" />
     <ClCompile Include="src\Text.cpp" />
     <ClCompile Include="src\Tools.cpp" />
     <ClCompile Include="src\Tower.cpp" />
     <ClCompile Include="src\Towers.cpp" />
+    <ClCompile Include="src\WinScreen.cpp" />
     <ClCompile Include="src\Zone.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -177,10 +179,12 @@
     <ClInclude Include="src\Map.h" />
     <ClInclude Include="src\Menu.h" />
     <ClInclude Include="src\Object.h" />
+    <ClInclude Include="src\Stats.h" />
     <ClInclude Include="src\Text.h" />
     <ClInclude Include="src\Tools.h" />
     <ClInclude Include="src\Tower.h" />
     <ClInclude Include="src\Towers.h" />
+    <ClInclude Include="src\WinScreen.h" />
     <ClInclude Include="src\Zone.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

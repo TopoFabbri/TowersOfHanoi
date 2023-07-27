@@ -7,17 +7,24 @@ Game::Game()
 	map = new Map({ 100, 100 });
 	towers = new Towers(cursor);
 	menu = new Menu();
+	stats = new Stats();
+	winScreen = new WinScreen(stats);
+	resetBtn = new Button(Tools::toConsoleDimensions(Vector2{ 90, 5 }), "R");
+	menuBtn = new Button(Tools::toConsoleDimensions(Vector2{ 95, 5 }), ". . .");
 
 	state = State::Menu;
-	movements = 0;
-	startTime = 0;
 }
 
 Game::~Game()
 {
-	delete cursor;
-	delete map;
+	delete menuBtn;
+	delete resetBtn;
+	delete winScreen;
+	delete stats;
+	delete menu;
 	delete towers;
+	delete map;
+	delete cursor;
 }
 
 void Game::run()
@@ -48,6 +55,12 @@ void Game::run()
 
 			break;
 
+		case State::WinScreen:
+			winScreen->update();
+			if (winScreen->getFinished())
+				state = State::Menu;
+			break;
+
 		default:;
 		}
 
@@ -66,10 +79,17 @@ void Game::update()
 {
 	towers->update();
 
-	movements = cursor->getMovements();
+	stats->update();
+	stats->setMoves(cursor->getMovements());
+
+	if (resetBtn->isPressed())
+		reset();
+
+	if (menuBtn->isPressed())
+		state = State::Menu;
 
 	if (towers->won())
-		state = State::Menu;
+		state = State::WinScreen;
 
 	cursor->update();
 }
@@ -88,15 +108,18 @@ void Game::draw()
 	case State::Game:
 		{
 			towers->draw();
+			resetBtn->draw();
+			menuBtn->draw();
 
-			std::string moves = "Movements: " + std::to_string(movements);
-			std::string time = "Time: " + std::to_string(static_cast<int>(GetTime()) - startTime);
+			std::string moves = "Movements: " + std::to_string(stats->getMoves());
+			std::string time = "Time: " + std::to_string(stats->getTime());
 
 			Text movesTxt = Text(moves.c_str(), 20, Tools::toConsoleDimensions(Vector2{ 50, 2 }), WHITE);
 			Text timeTxt = Text(time.c_str(), 20, Tools::toConsoleDimensions(Vector2{ 10, 2 }), WHITE);
 
 			movesTxt.draw();
 			timeTxt.draw();
+			
 			break;
 		}
 
@@ -104,6 +127,10 @@ void Game::draw()
 
 	case State::Menu:
 		menu->draw();
+		break;
+
+	case State::WinScreen: 
+		winScreen->draw();
 		break;
 
 	default:;
@@ -121,5 +148,6 @@ void Game::reset()
 	towers = new Towers(cursor);
 	
 	cursor->resetMovements();
-	startTime = static_cast<int>(GetTime());
+	stats->resetStats();
+	winScreen->restartFinished();
 }
