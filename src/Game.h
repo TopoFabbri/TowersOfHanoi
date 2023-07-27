@@ -1,10 +1,21 @@
 #pragma once
-#include <conio.h>
+
+#include <string>
 #include "Base.h"
 #include "Object.h"
 #include "Map.h"
 #include "Towers.h"
 #include "Cursor.h"
+#include "Menu.h"
+#include "Text.h"
+
+enum class State
+{
+	Quit,
+	Game,
+	Credits,
+	Menu
+};
 
 class Game :
     public Base
@@ -21,9 +32,15 @@ protected:
 	void draw() override;
 
 private:
-	static const int objQty = 2;
+	static const int objQty = 1;
 	Cursor* cursor;
-	Object* objs[objQty];
+	Map* map;
+	Towers* towers;
+	Menu* menu;
 
-	bool inGame;
+	State state;
+	int movements;
+	int startTime;
+
+	void reset();
 };

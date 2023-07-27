@@ -12,6 +12,7 @@ int main()
 void defaults()
 {
 	InitWindow(Tools::WIDTH, Tools::HEIGHT, "TowersOfHanoi");
+	SetTargetFPS(60);
 }
 
 void runProgram()

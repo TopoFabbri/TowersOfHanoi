@@ -6,9 +6,10 @@ class Cursor :
     public Object
 {
 private:
-	bool hasDisk;
 	Disc* grabbedDisc;
+	bool hasDisk;
 	bool click;
+	int movements;
 
 public:
 	Cursor();
@@ -20,4 +21,6 @@ public:
 	Vector2 getPos();
 	Disc* dropDisc();
 	void grabDisc(Disc* disc);
+	int getMovements();
+	void resetMovements();
 };

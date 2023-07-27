@@ -154,12 +154,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Base.cpp" />
+    <ClCompile Include="src\Button.cpp" />
     <ClCompile Include="src\Cursor.cpp" />
     <ClCompile Include="src\Disc.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Map.cpp" />
+    <ClCompile Include="src\Menu.cpp" />
     <ClCompile Include="src\Object.cpp" />
+    <ClCompile Include="src\Text.cpp" />
     <ClCompile Include="src\Tools.cpp" />
     <ClCompile Include="src\Tower.cpp" />
     <ClCompile Include="src\Towers.cpp" />
@@ -167,11 +170,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Base.h" />
+    <ClInclude Include="src\Button.h" />
     <ClInclude Include="src\Cursor.h" />
     <ClInclude Include="src\Disc.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Map.h" />
+    <ClInclude Include="src\Menu.h" />
     <ClInclude Include="src\Object.h" />
+    <ClInclude Include="src\Text.h" />
     <ClInclude Include="src\Tools.h" />
     <ClInclude Include="src\Tower.h" />
     <ClInclude Include="src\Towers.h" />

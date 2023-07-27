@@ -11,6 +11,7 @@ Cursor::Cursor()
 	click = false;
 	hasDisk = false;
 	grabbedDisc = NULL;
+	movements = 0;
 }
 
 void Cursor::update()
@@ -47,6 +48,7 @@ Disc* Cursor::dropDisc()
 
 	grabbedDisc = NULL;
 	hasDisk = false;
+	movements++;
 
 	return disc;
 }
@@ -55,4 +57,14 @@ void Cursor::grabDisc(Disc* disc)
 {
 	hasDisk = true;
 	grabbedDisc = disc;
+}
+
+int Cursor::getMovements()
+{
+	return movements;
+}
+
+void Cursor::resetMovements()
+{
+	movements = 0;
 }

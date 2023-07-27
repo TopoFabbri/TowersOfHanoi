@@ -8,9 +8,9 @@ public:
 	Base();
 	virtual ~Base();
 
-	virtual void start() = 0;
-	virtual void update() = 0;
-	virtual void draw() = 0;
+	virtual void start();
+	virtual void update();
+	virtual void draw();
 
 	bool getActive();
 };

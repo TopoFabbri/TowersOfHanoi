@@ -9,6 +9,18 @@ Base::~Base()
 {
 }
 
+void Base::start()
+{
+}
+
+void Base::update()
+{
+}
+
+void Base::draw()
+{
+}
+
 bool Base::getActive()
 {
 	return active;

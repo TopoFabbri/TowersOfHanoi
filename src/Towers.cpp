@@ -60,10 +60,5 @@ void Towers::draw()
 
 bool Towers::won()
 {
-	int discCount = 0;
-
-	while (discs[discCount])
-		discCount++;
-
-	return discCount >= discQty;
+	return towers[TOWER_QTY - 1]->getDiscQty() >= discQty;
 }
