@@ -13,7 +13,6 @@ WinScreen::WinScreen(Stats* newStats)
 
 WinScreen::~WinScreen()
 {
-	delete stats;
 }
 
 void WinScreen::update()

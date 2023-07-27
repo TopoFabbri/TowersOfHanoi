@@ -1,8 +1,20 @@
 #include "Button.h"
 
+void Button::startHovered()
+{
+	isHovered = true;
+	PlaySound(hoverWav);
+}
+
+void Button::endHovered()
+{
+	isHovered = false;
+}
+
 Button::Button()
 {
 	rec = { 0, 0, 10, 5 };
+	hoverWav = LoadSound("aud/Hover.Wav");
 	normal = WHITE;
 	hovered = GRAY;
 	txtColor = BLACK;
@@ -12,12 +24,14 @@ Button::Button()
 	text = "Button";
 	indent = 10;
 	font = GetFontDefault();
+	isHovered = false;
 }
 
 Button::Button(Vector2 pos, const char* newText)
 {
 	rec.x = pos.x;
 	rec.y = pos.y;
+	hoverWav = LoadSound("aud/Hover.Wav");
 	normal = WHITE;
 	hovered = GRAY;
 	txtColor = BLACK;
@@ -27,6 +41,7 @@ Button::Button(Vector2 pos, const char* newText)
 	text = newText;
 	indent = 10;
 	font = GetFontDefault();
+	isHovered = false;
 
 	rec.width = MeasureTextEx(font, text, size, 0).x + 2.f * indent;
 	rec.height = MeasureTextEx(font, text, size, 0).y + 2.f * indent;
@@ -34,11 +49,19 @@ Button::Button(Vector2 pos, const char* newText)
 	rec.y -= rec.height / 2.f;
 }
 
+void Button::update()
+{
+	if (!isHovered && CheckCollisionPointRec(GetMousePosition(), rec))
+		startHovered();
+	else if (isHovered && !CheckCollisionPointRec(GetMousePosition(), rec))
+		endHovered();
+}
+
 void Button::draw()
 {
 	const Rectangle source{ 0, 0, static_cast<float>(sprite.width), static_cast<float>(sprite.height) };
 
-	if (CheckCollisionPointRec(GetMousePosition(), rec))
+	if (isHovered)
 	{
 		const float rot = 10;
 

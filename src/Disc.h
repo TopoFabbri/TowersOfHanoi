@@ -7,6 +7,7 @@ class Disc :
 private:
 	Sound dropWav;
 	Sound grabWav;
+	Color selected;
 	int number;
 	bool grabbed;
 

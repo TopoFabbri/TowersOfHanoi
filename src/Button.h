@@ -7,6 +7,7 @@ class Button :
 	public Object
 {
 private:
+	Sound hoverWav;
 	Color normal;
 	Color hovered;
 	Color txtColor;
@@ -15,11 +16,16 @@ private:
 	const char* text;
 	float indent;
 	Font font;
+	bool isHovered;
+
+	void startHovered();
+	void endHovered();
 
 public:
 	Button();
 	Button(Vector2 pos, const char* newText);
 	
+	void update() override;
 	void draw() override;
 
 	bool isPressed();

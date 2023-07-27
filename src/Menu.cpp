@@ -9,6 +9,10 @@ Menu::Menu()
 
 int Menu::updateMenu()
 {
+	playBtn->update();
+	credsBtn->update();
+	quitBtn->update();
+
 	if (quitBtn->isPressed())
 		return 0;
 

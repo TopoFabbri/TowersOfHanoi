@@ -20,4 +20,5 @@ public:
     void setMoves(int newMoves);
     int getTime();
     int getMoves();
+    void addPausedTime(int pausedTime);
 };

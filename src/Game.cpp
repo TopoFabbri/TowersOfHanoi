@@ -9,6 +9,7 @@ Game::Game()
 	menu = new Menu();
 	stats = new Stats();
 	winScreen = new WinScreen(stats);
+	pauseScreen = new PauseScreen(stats);
 	resetBtn = new Button(Tools::toConsoleDimensions(Vector2{ 90, 5 }), "R");
 	menuBtn = new Button(Tools::toConsoleDimensions(Vector2{ 95, 5 }), ". . .");
 	credits = new Credits();
@@ -18,11 +19,12 @@ Game::Game()
 
 Game::~Game()
 {
+	delete credits;
 	delete menuBtn;
 	delete resetBtn;
+	delete pauseScreen;
 	delete winScreen;
 	delete stats;
-	delete credits;
 	delete menu;
 	delete towers;
 	delete map;
@@ -81,7 +83,17 @@ void Game::start()
 
 void Game::update()
 {
+	if (pauseScreen->getActive())
+	{
+		if (pauseScreen->hasQuit())
+			state = State::Menu;
+		return;
+	}
+
 	towers->update();
+
+	resetBtn->update();
+	menuBtn->update();
 
 	stats->update();
 	stats->setMoves(cursor->getMovements());
@@ -90,7 +102,7 @@ void Game::update()
 		reset();
 
 	if (menuBtn->isPressed())
-		state = State::Menu;
+		pauseScreen->pause();
 
 	if (towers->won())
 		state = State::WinScreen;
@@ -112,6 +124,13 @@ void Game::draw()
 	case State::Game:
 		{
 			towers->draw();
+
+			if (pauseScreen->getActive())
+			{
+				pauseScreen->draw();
+				break;
+			}
+
 			resetBtn->draw();
 			menuBtn->draw();
 

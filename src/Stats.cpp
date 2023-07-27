@@ -35,3 +35,8 @@ int Stats::getMoves()
 {
 	return moves;
 }
+
+void Stats::addPausedTime(int pausedTime)
+{
+	startTime += pausedTime;
+}

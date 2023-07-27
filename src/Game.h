@@ -8,6 +8,7 @@
 #include "Towers.h"
 #include "Cursor.h"
 #include "Menu.h"
+#include "PauseScreen.h"
 #include "Stats.h"
 #include "Text.h"
 #include "WinScreen.h"
@@ -18,7 +19,8 @@ enum class State
 	Game,
 	Credits,
 	Menu,
-	WinScreen
+	WinScreen,
+	PauseScreen
 };
 
 class Game :
@@ -44,6 +46,7 @@ private:
 	Credits* credits;
 	Stats* stats;
 	WinScreen* winScreen;
+	PauseScreen* pauseScreen;
 	Button* resetBtn;
 	Button* menuBtn;
 

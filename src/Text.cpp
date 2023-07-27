@@ -31,7 +31,5 @@ int Text::textSize()
 
 void Text::draw()
 {
-	x = x - (textSize() / 2);
-
-	DrawText(text, x, y, size, color);
+	DrawText(text, x - (textSize() / 2), y, size, color);
 }

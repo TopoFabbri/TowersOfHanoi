@@ -66,6 +66,9 @@
     <ClCompile Include="src\Credits.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\PauseScreen.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Base.h">
@@ -115,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="src\Credits.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PauseScreen.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
