@@ -23,6 +23,6 @@ public:
 	Disc* dropDisc();
 	void grabDisc(Disc* disc);
 	int getMovements();
-	void resetMovements();
+	void reset();
 	void cancelMove(Disc* disc);
 };

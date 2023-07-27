@@ -12,18 +12,31 @@ void Zone::update()
 {
 	mouseInZone = CheckCollisionPointRec(cursor->getPos(), rec);
 
-	if (cursor->getClick() && mouseInZone)
+	if (mouseInZone)
 	{
-		if (cursor->getHasDisk())
-		{
-			Disc* disc = cursor->dropDisc();
+		if (towerAttached->lastDisc() && !cursor->getHasDisk())
+			towerAttached->lastDisc()->setSelected();
+		else if (towerAttached->lastDisc())
+			towerAttached->lastDisc()->quitSelected();
 
-			if (!towerAttached->addDisc(disc))
-				cursor->cancelMove(disc);
-		}
-		else
+		if (cursor->getClick())
 		{
-			cursor->grabDisc(towerAttached->takeDisk());
+			if (cursor->getHasDisk())
+			{
+				Disc* disc = cursor->dropDisc();
+
+				if (!towerAttached->addDisc(disc))
+					cursor->cancelMove(disc);
+			}
+			else if (towerAttached->lastDisc())
+			{
+				cursor->grabDisc(towerAttached->takeDisk());
+			}
 		}
+	}
+	else
+	{
+		if (towerAttached->lastDisc())
+			towerAttached->lastDisc()->quitSelected();
 	}
 }

@@ -172,7 +172,7 @@ void Game::reset()
 	
 	towers = new Towers(cursor);
 	
-	cursor->resetMovements();
+	cursor->reset();
 	stats->resetStats();
 	winScreen->restartFinished();
 }

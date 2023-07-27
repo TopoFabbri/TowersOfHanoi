@@ -72,3 +72,13 @@ Disc* Tower::takeDisk()
 
 	return NULL;
 }
+
+Disc* Tower::lastDisc()
+{
+	int counter = 0;
+
+	while (discs[counter + 1])
+		counter++;
+
+	return discs[counter];
+}

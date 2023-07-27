@@ -15,6 +15,7 @@ public:
 
 	bool addDisc(Disc* disc);
 	Disc* takeDisk();
+	Disc* lastDisc();
 
 private:
 	int number;

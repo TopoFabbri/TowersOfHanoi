@@ -69,8 +69,11 @@ int Cursor::getMovements()
 	return movements;
 }
 
-void Cursor::resetMovements()
+void Cursor::reset()
 {
+	hasDisk = false;
+	grabbedDisc = NULL;
+	click = false;
 	movements = 0;
 }
 

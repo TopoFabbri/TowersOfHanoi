@@ -7,7 +7,7 @@ Credits::Credits()
 
 int Credits::getScene()
 {
-	if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+	if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
 		return 3;
 
 	return 2;

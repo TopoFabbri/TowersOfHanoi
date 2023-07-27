@@ -32,5 +32,5 @@ static_cast<float>(sprite.width), static_cast<float>(sprite.height) };
 	if (sprite.width != 0)
 		DrawTexturePro(sprite, source, Tools::toConsoleDimensions(rec), origin, rot, tint);
 	else
-		DrawRectangleRec(Tools::toConsoleDimensions(rec), tint);
+		DrawRectanglePro(Tools::toConsoleDimensions(rec), origin, rot, tint);
 }
