@@ -5,7 +5,7 @@ Disc::Disc(int newNumber, float height)
 	number = newNumber;
 	grabbed = false;
 
-	rec = { 0, 0, 2.f + static_cast<float>(number) * 2.5f, height };
+	rec = { 0, 0, 6.f + static_cast<float>(number) * 2.5f, height };
 }
 
 void Disc::setPos(Vector2 pos)

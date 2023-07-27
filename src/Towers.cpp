@@ -2,20 +2,23 @@
 
 Towers::Towers(Cursor* cursor)
 {
+	sprite = LoadTexture("res/Towers.png");
+	rec = { 0, 0, 100, 100 };
+
 	towerSpace = 30.f;
-	towerHeight = 50.f;
+	towerHeight = 36.f;
 	towerWidth = 1.f;
 	towerTop = 25.f;
 	discSpace = 1.f;
-	discHeight = 2.f;
+	discHeight = 3.f;
 	discQty = 5;
-
-	float zoneSize = 10.f;
 
 	for (int i = 0; i < TOWER_QTY; i++)
 	{
+		float zoneSize = 10.f;
+
 		towerPoss[i] = 50.f - towerSpace + towerSpace * static_cast<float>(i);
-		Rectangle zone = 
+		const Rectangle zone
 		{
 			towerPoss[i] - zoneSize / 2.f - towerWidth / 2.f,
 			towerTop,
@@ -51,8 +54,7 @@ void Towers::update()
 
 void Towers::draw()
 {
-	for (Tower* tower : towers)
-		tower->draw();
+	Object::draw();
 
 	for (int i = 0; i < discQty; i++)
 		discs[i]->draw();
