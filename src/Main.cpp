@@ -11,7 +11,7 @@ int main()
 
 void defaults()
 {
-	InitWindow(Tools::WIDTH, Tools::HEIGHT, "Towers Of Hanoi - Topo");
+	InitWindow(Tools::WIDTH, Tools::HEIGHT, "Hell's Hanoi - Topo");
 	InitAudioDevice();
 	SetTargetFPS(60);
 }

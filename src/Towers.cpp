@@ -10,7 +10,7 @@ Towers::Towers(Cursor* cursor)
 	towerWidth = 1.f;
 	towerTop = 25.f;
 	discSpace = 1.f;
-	discHeight = 3.f;
+	discHeight = 6.f;
 	discQty = 5;
 
 	for (int i = 0; i < TOWER_QTY; i++)
