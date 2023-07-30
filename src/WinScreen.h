@@ -10,6 +10,7 @@ class WinScreen :
 {
 private:
     Stats* stats;
+    Text* title;
     Text* movesTxt;
     Text* timeTxt;
     bool finished;

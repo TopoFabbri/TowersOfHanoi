@@ -3,14 +3,15 @@
 PauseScreen::PauseScreen(Stats* newStats)
 {
 	active = false;
-	rec = { 40, 20, 20, 60 };
-	tint = RED;
+	rec = { 30, 10, 40, 80 };
+	tint = WHITE;
+	sprite = LoadTexture("res/Popup.png");
 
 	stats = newStats;
-	title = new Text("Menu", 50, Tools::toConsoleDimensions(Vector2{ 50, 30 }), WHITE);
+	title = new Text("Menu", 50, Tools::toConsoleDimensions(Vector2{ 50, 35 }), WHITE);
 
-	resumeBtn = new Button(Tools::toConsoleDimensions(Vector2{ 50, 50 }), "Resume");
-	quitBtn = new Button(Tools::toConsoleDimensions(Vector2{ 50, 60 }), "Quit");
+	resumeBtn = new Button(Tools::toConsoleDimensions(Vector2{ 50, 55 }), "Resume");
+	quitBtn = new Button(Tools::toConsoleDimensions(Vector2{ 50, 65 }), "Quit");
 	startPauseTime = 0;
 }
 
