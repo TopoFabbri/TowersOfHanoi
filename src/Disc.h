@@ -9,8 +9,6 @@ class Disc :
 private:
 	Sound dropWav;
 	Sound grabWav;
-	Color selected;
-	Color base;
 	int number;
 	bool grabbed;
 	float selectedRot;

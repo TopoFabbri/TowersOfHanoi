@@ -1,11 +1,12 @@
 #include "Text.h"
 
-Text::Text(const char* newText, int newSize, Vector2 pos, Color color)
+Text::Text(const char* newText, float newSize, Vector2 newPos, Color color)
 {
+	font = LoadFont("fon/CreepyFont.ttf");
 	text = newText;
 	size = newSize;
-	x = static_cast<int>(pos.x);
-	y = static_cast<int>(pos.y);
+	spacing = 0;
+	pos = newPos;
 	this->color = color;
 }
 
@@ -13,23 +14,61 @@ Text::~Text()
 {
 }
 
-void Text::setPos(int newX, int newY)
+void Text::setText(const char* newText)
 {
-	x = newX;
-	y = newY;
+	text = newText;
 }
 
-int Text::measure()
+void Text::setPos(int newX, int newY)
 {
-	return MeasureText(text, size);
+	pos.x = static_cast<float>(newX);
+	pos.y = static_cast<float>(newY);
+}
+
+Vector2 Text::measure()
+{
+	return MeasureTextEx(font, text, size, spacing);
 }
 
 int Text::textSize()
 {
-	return MeasureText(text, size);
+	return MeasureText(text, static_cast<int>(size));
 }
 
 void Text::draw()
 {
-	DrawText(text, x - (textSize() / 2), y, size, color);
+	Vector2 tmpPos = pos;
+
+	tmpPos.x -= measure().x / 2.f;
+	tmpPos.y -= measure().y / 2.f;
+	tmpPos.x += 3.f;
+	tmpPos.y += 3.f;
+
+	DrawTextPro
+	(
+		font,
+		text,
+		tmpPos,
+		{ 0, 0 },
+		0,
+		size,
+		spacing,
+		BLACK
+	);
+
+	tmpPos = pos;
+	tmpPos.x -= measure().x / 2.f;
+	tmpPos.y -= measure().y / 2.f;
+
+	DrawTextPro
+	(
+		font,
+		text,
+		tmpPos,
+		{ 0, 0 },
+		0,
+		size,
+		spacing,
+		color
+	);
 }

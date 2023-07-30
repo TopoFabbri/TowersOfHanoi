@@ -19,8 +19,7 @@ enum class State
 	Game,
 	Credits,
 	Menu,
-	WinScreen,
-	PauseScreen
+	WinScreen
 };
 
 class Game :
@@ -38,7 +37,6 @@ protected:
 	void draw() override;
 
 private:
-	static const int objQty = 1;
 	Cursor* cursor;
 	Map* map;
 	Towers* towers;
@@ -49,6 +47,8 @@ private:
 	PauseScreen* pauseScreen;
 	Button* resetBtn;
 	Button* menuBtn;
+	Text* movesTxt;
+	Text* timeTxt;
 
 	State state;
 

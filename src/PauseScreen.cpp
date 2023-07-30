@@ -7,7 +7,7 @@ PauseScreen::PauseScreen(Stats* newStats)
 	tint = RED;
 
 	stats = newStats;
-	title = new Text("Menu", 50, Tools::toConsoleDimensions(Vector2{ 50, 30 }), BLACK);
+	title = new Text("Menu", 50, Tools::toConsoleDimensions(Vector2{ 50, 30 }), WHITE);
 
 	resumeBtn = new Button(Tools::toConsoleDimensions(Vector2{ 50, 50 }), "Resume");
 	quitBtn = new Button(Tools::toConsoleDimensions(Vector2{ 50, 60 }), "Quit");
@@ -51,5 +51,11 @@ bool PauseScreen::hasQuit()
 		stats->addPausedTime(static_cast<int>(GetTime()) - startPauseTime);
 	}
 
-	return quitBtn->isPressed();
+	if (quitBtn->isPressed())
+	{
+		active = false;
+		return true;
+	}
+
+	return false;
 }

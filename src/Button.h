@@ -24,6 +24,7 @@ private:
 public:
 	Button();
 	Button(Vector2 pos, const char* newText);
+	Button(Vector2 pos, const char* newText, const char* path);
 	
 	void update() override;
 	void draw() override;

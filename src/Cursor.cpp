@@ -31,6 +31,14 @@ void Cursor::update()
 		PlaySound(clickWav);
 }
 
+void Cursor::draw()
+{
+	if (grabbedDisc)
+		grabbedDisc->draw();
+
+	Object::draw();
+}
+
 bool Cursor::getClick()
 {
 	return click;

@@ -10,8 +10,8 @@ class WinScreen :
 {
 private:
     Stats* stats;
-    std::string moves;
-    std::string time;
+    Text* movesTxt;
+    Text* timeTxt;
     bool finished;
 
 public:

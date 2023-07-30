@@ -10,15 +10,19 @@ Game::Game()
 	stats = new Stats();
 	winScreen = new WinScreen(stats);
 	pauseScreen = new PauseScreen(stats);
-	resetBtn = new Button(Tools::toConsoleDimensions(Vector2{ 90, 5 }), "R");
-	menuBtn = new Button(Tools::toConsoleDimensions(Vector2{ 95, 5 }), ". . .");
+	resetBtn = new Button(Tools::toConsoleDimensions(Vector2{ 88, 5 }), "    ", "res/RestartBtn.png");
+	menuBtn = new Button(Tools::toConsoleDimensions(Vector2{ 95, 5 }), "    ", "res/PauseBtn.png");
 	credits = new Credits();
+	movesTxt = new Text("Movements: ", 40, Tools::toConsoleDimensions(Vector2{ 50, 2 }), WHITE);
+	timeTxt = new Text("Time: ", 40, Tools::toConsoleDimensions(Vector2{ 10, 2 }), WHITE);
 
 	state = State::Menu;
 }
 
 Game::~Game()
 {
+	delete timeTxt;
+	delete movesTxt;
 	delete credits;
 	delete menuBtn;
 	delete resetBtn;
@@ -66,8 +70,6 @@ void Game::run()
 			if (winScreen->getFinished())
 				state = State::Menu;
 			break;
-
-		default:;
 		}
 
 		if (WindowShouldClose())
@@ -137,11 +139,11 @@ void Game::draw()
 			std::string moves = "Movements: " + std::to_string(stats->getMoves());
 			std::string time = "Time: " + std::to_string(stats->getTime());
 
-			Text movesTxt = Text(moves.c_str(), 20, Tools::toConsoleDimensions(Vector2{ 50, 2 }), WHITE);
-			Text timeTxt = Text(time.c_str(), 20, Tools::toConsoleDimensions(Vector2{ 10, 2 }), WHITE);
+			movesTxt->setText(moves.c_str());
+			timeTxt->setText(time.c_str());
 
-			movesTxt.draw();
-			timeTxt.draw();
+			movesTxt->draw();
+			timeTxt->draw();
 			
 			break;
 		}

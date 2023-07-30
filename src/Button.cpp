@@ -13,34 +13,59 @@ void Button::endHovered()
 
 Button::Button()
 {
+	sprite = LoadTexture("res/Button.png");
+
 	rec = { 0, 0, 10, 5 };
 	hoverWav = LoadSound("aud/Hover.Wav");
 	normal = WHITE;
 	hovered = GRAY;
 	txtColor = BLACK;
-	sprite = {};
 	size = 60;
 	txtSpacing = 1;
 	text = "Button";
 	indent = 10;
-	font = GetFontDefault();
+	font = LoadFont("fon/CreepyFont.ttf");
 	isHovered = false;
 }
 
 Button::Button(Vector2 pos, const char* newText)
 {
+	sprite = LoadTexture("res/Button.png");
+
 	rec.x = pos.x;
 	rec.y = pos.y;
 	hoverWav = LoadSound("aud/Hover.Wav");
 	normal = WHITE;
 	hovered = GRAY;
 	txtColor = BLACK;
-	sprite = {};
 	size = 40;
 	txtSpacing = 1;
 	text = newText;
 	indent = 10;
-	font = GetFontDefault();
+	font = LoadFont("fon/CreepyFont.ttf");
+	isHovered = false;
+
+	rec.width = MeasureTextEx(font, text, size, 0).x + 2.f * indent;
+	rec.height = MeasureTextEx(font, text, size, 0).y + 2.f * indent;
+	rec.x -= rec.width / 2.f;
+	rec.y -= rec.height / 2.f;
+}
+
+Button::Button(Vector2 pos, const char* newText, const char* path)
+{
+	sprite = LoadTexture(path);
+
+	rec.x = pos.x;
+	rec.y = pos.y;
+	hoverWav = LoadSound("aud/Hover.Wav");
+	normal = WHITE;
+	hovered = GRAY;
+	txtColor = BLACK;
+	size = 40;
+	txtSpacing = 1;
+	text = newText;
+	indent = 10;
+	font = LoadFont("fon/CreepyFont.ttf");
 	isHovered = false;
 
 	rec.width = MeasureTextEx(font, text, size, 0).x + 2.f * indent;
@@ -65,7 +90,7 @@ void Button::draw()
 	{
 		const float rot = 10;
 
-		DrawRectanglePro(rec, { 0, 0 }, rot, hovered);
+		DrawTexturePro(sprite, source, rec, { 0, 0 }, rot, hovered);
 		DrawTextPro
 		(
 			font, 
@@ -80,7 +105,7 @@ void Button::draw()
 	}
 	else
 	{
-		DrawRectanglePro(rec, { 0, 0 }, 0, normal);
+		DrawTexturePro(sprite, source, rec, { 0, 0 }, 0, normal);
 		DrawTextPro
 		(
 			font,

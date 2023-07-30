@@ -16,6 +16,7 @@ public:
 	Cursor();
 
 	void update() override;
+	void draw() override;
 
 	bool getClick();
 	bool getHasDisk();

@@ -3,16 +3,27 @@
 WinScreen::WinScreen(Stats* newStats)
 {
 	stats = newStats;
-
-	moves = "Moves: ";
-	time = "Time: ";
 	finished = false;
 
-	rec = { 40, 40, 20, 20 };
+	movesTxt = new Text(
+		"Moves: ",
+		35,
+		Tools::toConsoleDimensions(Vector2{ 50, 45 }),
+		WHITE);
+
+
+	timeTxt = new Text(
+		"Time: ",
+		35,
+		Tools::toConsoleDimensions(Vector2{ 50, 55 }),
+		WHITE);
+	rec = { 40, 35, 20, 30 };
 }
 
 WinScreen::~WinScreen()
 {
+	delete movesTxt;
+	delete timeTxt;
 }
 
 void WinScreen::update()
@@ -28,24 +39,14 @@ void WinScreen::draw()
 
 	Object::draw();
 
-	const std::string movesTmpTxt = moves + std::to_string(stats->getMoves());
-	const std::string timeTmpTxt = time + std::to_string(stats->getTime());
+	const std::string moves = "Moves: " + std::to_string(stats->getMoves());
+	const std::string time = "Time: " + std::to_string(stats->getTime());
 
-	Text movesTxt = Text(
-		movesTmpTxt.c_str(),
-		20,
-		Tools::toConsoleDimensions(Vector2{50, 45}),
-		BLACK);
+	movesTxt->setText(moves.c_str());
+	timeTxt->setText(time.c_str());
 
-
-	Text timeTxt = Text(
-		timeTmpTxt.c_str(),
-		20,
-		Tools::toConsoleDimensions(Vector2{50, 55}),
-		BLACK);
-
-	movesTxt.draw();
-	timeTxt.draw();
+	movesTxt->draw();
+	timeTxt->draw();
 }
 
 bool WinScreen::getFinished()
