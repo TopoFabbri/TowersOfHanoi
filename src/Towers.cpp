@@ -41,6 +41,12 @@ Towers::~Towers()
 {
 	for (Tower* tower : towers)
 		delete tower;
+
+	for (Zone* zone : zones)
+		delete zone;
+
+	for (Disc* disc : discs)
+		delete disc;
 }
 
 void Towers::update()
