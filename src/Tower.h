@@ -6,7 +6,7 @@ class Tower :
 	public Object
 {
 public:
-	static const int MAX_DISCS = 9;
+	static const int MAX_DISCS = 5;
 
 	Tower(int newNumber, float discSpace, float discHeight, float posX, float height, float width, float top);
 	~Tower() override;

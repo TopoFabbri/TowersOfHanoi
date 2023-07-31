@@ -77,8 +77,13 @@ Disc* Tower::lastDisc()
 {
 	int counter = 0;
 
-	while (discs[counter + 1])
-		counter++;
+	while (counter + 1 < MAX_DISCS)
+	{
+		if (discs[counter + 1])
+			counter++;
+		else
+			break;
+	}
 
 	return discs[counter];
 }

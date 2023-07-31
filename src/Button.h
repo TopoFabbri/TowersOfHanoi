@@ -2,6 +2,7 @@
 
 #include <raylib.h>
 #include "Object.h"
+#include "Text.h"
 
 class Button :
 	public Object
@@ -13,7 +14,7 @@ private:
 	Color txtColor;
 	float size;
 	float txtSpacing;
-	const char* text;
+	Text* text;
 	float indent;
 	Font font;
 	bool isHovered;
@@ -25,6 +26,7 @@ public:
 	Button();
 	Button(Vector2 pos, const char* newText);
 	Button(Vector2 pos, const char* newText, const char* path);
+	~Button() override;
 	
 	void update() override;
 	void draw() override;

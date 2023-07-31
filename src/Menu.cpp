@@ -2,9 +2,21 @@
 
 Menu::Menu()
 {
-	playBtn = new Button(Tools::toConsoleDimensions(Vector2{50, 20}), "PLAY");
-	credsBtn = new Button(Tools::toConsoleDimensions(Vector2{ 50, 40 }), "CREDITS");
+	title = new Text("MENU", 50, Tools::toConsoleDimensions(Vector2{ 50, 20 }), YELLOW, true);
+	rec = { 0, 0, 100, 100 };
+	sprite = LoadTexture("res/BG2.png");
+
+	playBtn = new Button(Tools::toConsoleDimensions(Vector2{ 50, 50 }), "PLAY");
+	credsBtn = new Button(Tools::toConsoleDimensions(Vector2{ 50, 65 }), "CREDITS");
 	quitBtn = new Button(Tools::toConsoleDimensions(Vector2{ 50, 80 }), "QUIT");
+}
+
+Menu::~Menu()
+{
+	delete quitBtn;
+	delete credsBtn;
+	delete playBtn;
+	delete title;
 }
 
 int Menu::updateMenu()
@@ -27,6 +39,9 @@ int Menu::updateMenu()
 
 void Menu::draw()
 {
+	Object::draw();
+
+	title->draw();
 	playBtn->draw();
 	credsBtn->draw();
 	quitBtn->draw();

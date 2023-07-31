@@ -8,7 +8,7 @@ PauseScreen::PauseScreen(Stats* newStats)
 	sprite = LoadTexture("res/Popup.png");
 
 	stats = newStats;
-	title = new Text("Menu", 50, Tools::toConsoleDimensions(Vector2{ 50, 35 }), WHITE);
+	title = new Text("Menu", 50, Tools::toConsoleDimensions(Vector2{ 50, 35 }), YELLOW, true);
 
 	resumeBtn = new Button(Tools::toConsoleDimensions(Vector2{ 50, 55 }), "Resume");
 	quitBtn = new Button(Tools::toConsoleDimensions(Vector2{ 50, 65 }), "Quit");

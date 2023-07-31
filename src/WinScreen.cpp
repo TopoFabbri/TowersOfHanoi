@@ -8,20 +8,22 @@ WinScreen::WinScreen(Stats* newStats)
 	rec = { 30, 10, 40, 80 };
 	sprite = LoadTexture("res/Popup.png");
 
-	title = new Text("You win!", 50, Tools::toConsoleDimensions(Vector2{ 50, 35 }), RED);
+	title = new Text("You win!", 50, Tools::toConsoleDimensions(Vector2{ 50, 35 }), YELLOW, true);
 
 	movesTxt = new Text(
 		"Moves: ",
 		35,
 		Tools::toConsoleDimensions(Vector2{ 50, 55 }),
-		WHITE);
+		WHITE, 
+		true);
 
 
 	timeTxt = new Text(
 		"Time: ",
 		35,
 		Tools::toConsoleDimensions(Vector2{ 50, 65 }),
-		WHITE);
+		WHITE, 
+		true);
 }
 
 WinScreen::~WinScreen()

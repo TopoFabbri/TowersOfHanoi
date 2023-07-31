@@ -13,8 +13,8 @@ Game::Game()
 	resetBtn = new Button(Tools::toConsoleDimensions(Vector2{ 88, 5 }), "    ", "res/RestartBtn.png");
 	menuBtn = new Button(Tools::toConsoleDimensions(Vector2{ 95, 5 }), "    ", "res/PauseBtn.png");
 	credits = new Credits();
-	movesTxt = new Text("Movements: ", 40, Tools::toConsoleDimensions(Vector2{ 50, 2 }), WHITE);
-	timeTxt = new Text("Time: ", 40, Tools::toConsoleDimensions(Vector2{ 10, 2 }), WHITE);
+	movesTxt = new Text("Movements: ", 40, Tools::toConsoleDimensions(Vector2{ 50, 2 }), WHITE, true);
+	timeTxt = new Text("Time: ", 40, Tools::toConsoleDimensions(Vector2{ 10, 2 }), WHITE, true);
 
 	state = State::Menu;
 }
