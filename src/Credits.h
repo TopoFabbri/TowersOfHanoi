@@ -10,6 +10,8 @@ private:
     Text* dev;
     Text* art;
     Text* sound;
+    Rectangle rec2;
+    Texture2D image;
 
 public:
     Credits();
