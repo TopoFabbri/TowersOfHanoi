@@ -68,5 +68,13 @@ void Towers::draw()
 
 bool Towers::won()
 {
-	return towers[TOWER_QTY - 1]->getDiscQty() >= discQty;
+	bool won = false;
+
+	for (int i = 1; i < TOWER_QTY; i++)
+	{
+		if (towers[i]->getDiscQty() >= discQty)
+			won = true;
+	}
+
+	return won;
 }
