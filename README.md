@@ -3,7 +3,7 @@
 
 ## Overview
 
-Welcome to Hell's Hanoi, a daring new take on the classic Towers of Hanoi puzzle game. In this version, you're challenged to move discs between towers in a hellish environment, designed to increase the thrill and intensity of this traditional game. The ambient flames, demonic aesthetics, and spine-chilling soundtrack adds a unique, haunting twist to the game.
+Welcome to Hell's Hanoi, a daring new take on the classic Towers of Hanoi puzzle game. In this version, you're challenged to move discs between towers in a hellish environment, designed to increase the thrill and intensity of this traditional game. The ambient flames and demonic aesthetics, adds a unique, haunting twist to the game.
 
 ## Game Rules
 
