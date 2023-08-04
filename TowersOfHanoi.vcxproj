@@ -159,6 +159,7 @@
     <ClCompile Include="src\Cursor.cpp" />
     <ClCompile Include="src\Disc.cpp" />
     <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\GameStarter.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Map.cpp" />
     <ClCompile Include="src\Menu.cpp" />
@@ -179,6 +180,7 @@
     <ClInclude Include="src\Cursor.h" />
     <ClInclude Include="src\Disc.h" />
     <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\GameStarter.h" />
     <ClInclude Include="src\Map.h" />
     <ClInclude Include="src\Menu.h" />
     <ClInclude Include="src\Object.h" />
