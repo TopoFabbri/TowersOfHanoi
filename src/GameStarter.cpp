@@ -7,6 +7,12 @@ void GameStarter::defaults()
 	SetTargetFPS(60);
 }
 
+void GameStarter::close()
+{
+	CloseAudioDevice();
+	CloseWindow();
+}
+
 void GameStarter::runProgram()
 {
 	defaults();
@@ -14,4 +20,6 @@ void GameStarter::runProgram()
 	Game* game = new Game();
 	game->run();
 	delete game;
+
+	close();
 }
