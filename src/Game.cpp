@@ -88,7 +88,10 @@ void Game::update()
 	if (pauseScreen->getActive())
 	{
 		if (pauseScreen->hasQuit())
+		{
 			state = State::Menu;
+			cursor->dropDisc();
+		}
 		return;
 	}
 
